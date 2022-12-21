@@ -70,7 +70,24 @@ export default function StudentComponent() {
       columns,
       rows,
     });
-
+    workSheet.getTable("sheet1").removeColumns(0, 1);
+    workSheet.getTable("sheet1").commit();
+    workSheet.getTable("sheet1").removeRows(0, 1);
+    workSheet.getTable("sheet1").commit();
+    workSheet.getTable("sheet1").getColumn(0).name = "Vương Quốc Tuấn";
+    workSheet.getTable("sheet1").commit();
+    workSheet.getTable("sheet1").addRow(["Thời gian làm việc"], 0);
+    workSheet.getTable("sheet1").addRow(["Thời gian OT 150%"], 1);
+    workSheet.getTable("sheet1").addRow(["Thời gian OT 200%"], 2);
+    workSheet.getTable("sheet1").addRow(["Thời gian OT 300%"], 3);
+    workSheet.getTable("sheet1").addRow(["Thưởng"], 4);
+    workSheet.getTable("sheet1").addRow(["Hỗ trợ"], 5);
+    workSheet.getTable("sheet1").addRow(["Bảo hiểm"], 6);
+    workSheet.getTable("sheet1").addRow(["Vay tháng này"], 7);
+    workSheet.getTable("sheet1").addRow(["Trừ nợ tháng này"], 8);
+    workSheet.getTable("sheet1").addRow(["Còn nợ"], 9);
+    workSheet.getTable("sheet1").addRow(["Lương thực tế nhận được"], 10);
+    workSheet.getTable("sheet1").commit();
     workSheet.eachRow((row, rowNubmer) => {
       row.eachCell((cell) => {
         console.log(rowNubmer);
@@ -78,7 +95,7 @@ export default function StudentComponent() {
           cell.fill = {
             type: "pattern",
             pattern: "solid",
-            fgColor: { argb: "FFFF02" },
+            fgColor: { argb: "2E7D32" },
           };
         }
       });
