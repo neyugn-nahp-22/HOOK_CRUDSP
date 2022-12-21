@@ -19,7 +19,7 @@ const API_SCHEME = {
     },
     IMPORT_EXCEL: {
       url: `${BASE_URL}/student/excel`,
-      method: METHOD.GET,
+      method: METHOD.POST,
     },
     // DELETE_STUDENT: {
     //   url: `${BASE_URL}/`,

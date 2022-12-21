@@ -1,6 +1,7 @@
 const Models = require("../model/index");
 const xlsx = require("xlsx");
 const fs = require("fs");
+const Excel = require("exceljs");
 
 exports.getStudent = async (req, res) => {
   try {
@@ -64,7 +65,6 @@ exports.addExcel = async (req, res) => {
 exports.downloadExcel = async (req, res) => {
   Models.find().then(async (objs) => {
     let tutorials = [];
-
     let counter = 0;
     objs.forEach((obj) => {
       obj.id = counter;

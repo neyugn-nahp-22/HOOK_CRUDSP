@@ -53,11 +53,12 @@ function* handlePutStudent({ payload }) {
   }
 }
 
-function* handleDownloadExcel(payload) {
+function* handleAddExcel({ payload }) {
   try {
     const formData = new FormData();
-    formData.append("file", payload.file[0]);
-    yield itemApi.importExcel("GET", "/excel", formData);
+    formData.append("file", payload.file.file[0]);
+    console.log(payload.file, "payload");
+    yield itemApi.importExcel(null, null, formData);
     yield put(StudentAction.importExcelSuccess());
     yield put(StudentAction.getRequest());
   } catch (error) {
@@ -70,9 +71,6 @@ const studentSaga = [
   takeLatest(actionTypes.studentType.ADD_REQUEST, handleAddStudent),
   takeLatest(actionTypes.studentType.DEL_REQUEST, handleDelStudent),
   takeLatest(actionTypes.studentType.PUT_REQUEST, handlePutStudent),
-  takeLatest(
-    actionTypes.studentType.DOWNLOAD_EXCEL_REQUEST,
-    handleDownloadExcel
-  ),
+  takeLatest(actionTypes.studentType.IMPORT_EXCEL_REQUEST, handleAddExcel),
 ];
 export default studentSaga;

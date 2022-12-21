@@ -8,5 +8,5 @@ module.exports = function (app) {
     .route("/student/:id")
     .delete(StudentList.delStudent)
     .put(StudentList.putStudent);
-  app.route("/student/excel").get(StudentList.downloadExcel);
+  app.route("/student/excel").post(StudentList.addExcel);
 };
